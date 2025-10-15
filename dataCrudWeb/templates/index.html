@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ユーザー管理</title>
+<style>
+body { font-family: sans-serif; margin: 30px; }
+form { margin-bottom: 20px; }
+button { margin-left: 10px; }
+</style>
+</head>
+<body>
+  <h2>ユーザー登録</h2>
+  <form action="/add" method="POST">
+    <input type="text" name="name" placeholder="氏名を入力" required>
+    <button type="submit">登録</button>
+  </form>
+
+  <h3>登録一覧</h3>
+  <ul>
+  {% for user in users %}
+    <li>
+      ID={{ user.id }} | {{ user.name }}
+      <a href="/delete/{{ user.id }}">削除</a>
+    </li>
+  {% endfor %}
+  </ul>
+</body>
+</html>
